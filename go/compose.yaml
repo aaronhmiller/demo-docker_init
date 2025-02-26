@@ -11,9 +11,10 @@ services:
   server:
     build:
       context: .
-    image: aaronhmiller/mypythonapp
+      target: final
+    image: aaronhmiller/mygoapp
     ports:
-      - 8000:8000
+      - 8080:8080
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
