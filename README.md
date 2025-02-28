@@ -32,5 +32,6 @@ various components is the best way to building trustworthy, reliable software.
 
 ## Next steps
 
-Add Deno (my personal favorite right now) 
-Who knows after that?
+~~Add Deno (my personal favorite right now)~~ 
+
+Let's see what happens!
