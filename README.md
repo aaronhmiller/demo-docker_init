@@ -19,6 +19,8 @@ one:
 - php
 - python
 - rust
+manually added
+- deno
 
 I then tested locally and built containers for both ARM and AMD CPU
 architectures and loaded them into [Docker Hub](https://hub.docker.com/u/aaronhmiller).
