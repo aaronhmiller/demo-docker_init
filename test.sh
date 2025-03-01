@@ -11,11 +11,7 @@ for dir in "${DIRECTORIES[@]}"; do
     
     # 1. Start docker compose
     echo "Starting docker compose in $dir"
-    docker compose up -d
-    
-    # Wait a bit to ensure services are up
-    echo "Waiting for services to start..."
-    sleep 10
+    docker compose up -d --wait
     
     # 2. Make HTTP request to port 8080
     echo "Making HTTP request"
