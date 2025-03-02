@@ -2,13 +2,13 @@
 
 # Create a log file with timestamp
 LOG_FILE="webapp_testing_$(date +%Y%m%d_%H%M%S).log"
-echo "Starting directory processing at $(date)" > "$LOG_FILE"
+echo "Starting testing at $(date)" > "$LOG_FILE"
 
 # List of directories to process
 DIRECTORIES=(*/);  # This would get all immediate subdirectories in the current directory
 
 for dir in "${DIRECTORIES[@]}"; do
-    echo "Processing directory: $dir" | tee -a "$LOG_FILE"    
+    echo "Testing project in: $dir" | tee -a "$LOG_FILE"    
     cd "$dir" # note that ../$LOG_FILE needed now
     
     # 1. Start docker compose
@@ -18,7 +18,7 @@ for dir in "${DIRECTORIES[@]}"; do
     # 2. Make HTTP request to port 8080
     echo "Making HTTP request" | tee -a "../$LOG_FILE"
     RESPONSE=$(http :8080 --headers 2>&1)
-    echo "$RESPONSE" >> "$LOG_FILE"
+    #echo "$RESPONSE" >> "../$LOG_FILE"
     
     # 3. Test for 200 HTTP response code
     if echo "$RESPONSE" | grep -q "HTTP/1.1 200"; then
@@ -35,11 +35,11 @@ for dir in "${DIRECTORIES[@]}"; do
     # Return to the original directory
     cd - > /dev/null
     
-    echo "Completed processing $dir" | tee -a "$LOG_FILE"
+    echo "Completed testing of $dir" | tee -a "$LOG_FILE"
     echo "----------------------------------------" | tee -a "$LOG_FILE"
 done
 
-echo "All directories processed" | tee -a "$LOG_FILE"
+echo "All projects tested" | tee -a "$LOG_FILE"
 echo "Log file created: $LOG_FILE"
-echo "Cleaning up..."
+echo "Cleaning up images..."
 docker rmi $(docker images -q)
