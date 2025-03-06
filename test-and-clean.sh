@@ -52,5 +52,5 @@ echo "----------------------------------------" | tee -a "$LOG_FILE"
 
 echo "All projects tested" | tee -a "$LOG_FILE"
 echo "Log file created: $LOG_FILE"
-echo "Cleaning up images..."
-docker rmi $(docker images -q)
+# echo "Cleaning up images..."
+# docker rmi $(docker images -q)
