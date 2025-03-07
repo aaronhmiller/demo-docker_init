@@ -54,3 +54,4 @@ echo "All projects tested" | tee -a "$LOG_FILE"
 echo "Log file created: $LOG_FILE"
 # echo "Cleaning up images..."
 # docker rmi $(docker images -q)
+echo "adding a demo comment"
