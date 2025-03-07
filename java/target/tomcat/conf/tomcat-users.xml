@@ -24,3 +24,5 @@
   <user username="role1" password="tomcat" roles="role1"/>
 -->
 </tomcat-users>
+<foo>
+</foo>
